@@ -11,12 +11,10 @@ const haCercat  = ref(false)
 async function buscar() {
     try {
       resultats.value = await cercar(cerca.value) ?? []
-      haCercat.value = false
+      haCercat.value = true
     } catch (e) {
       console.error(e)
       resultats.value = []
-    }finally{
-      haCercat.value = true
     }
 }
 
@@ -53,7 +51,7 @@ function netejar() {
                 Netejar
             </v-btn>
 
-            <v-alert v-if="haCercat && resultats.lenght === 0"
+            <v-alert v-if="haCercat && resultats.length === 0"
             type="info"
             variant="tonal"
             class="my-4">
